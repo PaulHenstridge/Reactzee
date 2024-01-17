@@ -5,13 +5,14 @@ width: max-content;
     aspect-ratio:1;
     border: 2px solid black;
     margin:1rem;
+    padding: 1.5rem;
 
 `
 
 
-const Die = () => {
+const Die = ({value}) => {
     return ( <DieBox>
-    I'm a Die!
+    <span>{value}</span>
     </DieBox> );
 }
  
