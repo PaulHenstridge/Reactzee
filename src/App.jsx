@@ -10,7 +10,7 @@ function App() {
   <h1> Reactzee</h1>
   <DiceContainer />
   <ScoreContainer />
-  <TotalsContainer />
+  
     </>
   )
 }

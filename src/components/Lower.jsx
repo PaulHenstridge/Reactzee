@@ -7,14 +7,13 @@ const LowerBox = styled.section`
     padding: 0 2rem 2rem 2rem;
     margin:2rem 0;
 `
-const Lower = () => {
+const Lower = ({categories}) => {
     return ( <LowerBox>
     <h3>LOWER</h3>
-    <CategoryBox />
-    <CategoryBox />
-    <CategoryBox />
-    <CategoryBox />
-    <CategoryBox />
+    {Object.keys(categories).map((category, index) => 
+    <CategoryBox category = {category} score = {categories[category]} key={index}/>
+    )
+    }
     </LowerBox> );
 }
  

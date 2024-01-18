@@ -14,10 +14,12 @@ const CatBox = styled.div`
     }
 `
 
-const CategoryBox = () => {
+const CategoryBox = ({category, score}) => {
+
+ 
     return ( <CatBox>
-    <span>category name</span>
-    <span>category score</span>
+    <span>{category}</span>
+    <span>{score}</span>
     </CatBox> );
 }
  
