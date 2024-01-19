@@ -20,7 +20,6 @@ const DiceContainer = () => {
     const fetchDiceValues = async () => {
         try {
             const response = await axios.get('http://localhost:8080/roll');
-            console.log("response data-->", response.data)
             setDiceVals(response.data.dice);
             setRollsRemaining(response.data.turnsRemaining)
         } catch (error) {

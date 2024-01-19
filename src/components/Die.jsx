@@ -15,6 +15,7 @@ width: max-content;
 `
 const HoldButton = styled.button`
     background-color: ${props => props.isHeld ? 'yellow' : 'green'};
+    color: ${props => props.isHeld ? 'black' : 'white'};
     width: max content;
     height: max-content;
     /* margin-right: 1rem; */
@@ -22,7 +23,6 @@ const HoldButton = styled.button`
 
 
 const Die = ({index, value, holdClicked, isHeld}) => {
- console.log("die ", index, "isHeld = ", isHeld)
     return ( 
     <FlexContainer> 
     <DieBox>

@@ -10,7 +10,7 @@ const ScoreContainer = () => {
 
     const [upperCategories, setUpperCategories] = useState({
         ONES:0,
-        TWOES:0,
+        TWOS:0,
         THREES:0,
         FOURS:0,
         FIVES:0,
@@ -34,8 +34,21 @@ const ScoreContainer = () => {
     const scorePoints = async (section, category) => {
         try {
             const response = await axios.post('http://localhost:8080/score', {section, category})
-           
+           console.log(response.data)
 
+           if (upperCategories.hasOwnProperty(response.data.category)) {
+            setUpperCategories(prevCategories => ({
+                ...prevCategories,
+                [response.data.category]: response.data.score
+            }));
+        } else if (lowerCategories.hasOwnProperty(response.data.category)) {
+            setLowerCategories(prevCategories => ({
+                ...prevCategories,
+                [response.data.category]: response.data.score
+            }));
+        }
+        setUpperTotal(response.data.upperTotal)
+        setLowerTotal(response.data.lowerTotal)
         }
         catch (error) {
         console.error('Error fetching data:', error);
@@ -44,9 +57,9 @@ const ScoreContainer = () => {
 
     return ( <>
     <h2>Score Container</h2>
-    <Upper categories = {upperCategories}/>
-    <Lower categories = {lowerCategories}/>
-    <TotalsContainer />
+    <Upper categories = {upperCategories} scorePoints = {scorePoints}/>
+    <Lower categories = {lowerCategories} scorePoints = {scorePoints} />
+    <TotalsContainer upperTotal={upperTotal} lowerTotal={lowerTotal}/>
     </> );
 }
  

@@ -14,11 +14,11 @@ const CatBox = styled.div`
     }
 `
 
-const CategoryBox = ({category, score}) => {
+const CategoryBox = ({category, score, scoreClick}) => {
 
  
     return ( <CatBox>
-    <span>{category}</span>
+    <span onClick={() => scoreClick(category)}>{category}</span>
     <span>{score}</span>
     </CatBox> );
 }

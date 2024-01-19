@@ -7,12 +7,17 @@ const UpperBox = styled.section`
     padding: 0 2rem 2rem 2rem;
 
 `
-const Upper = ({categories}) => {
+const Upper = ({categories,scorePoints}) => {
+
+const scoreClick = (category) => {
+    scorePoints("UPPER", category)
+}
+
     return ( <UpperBox>
     <h2>UPPER</h2>
 
     {Object.keys(categories).map((category, index) => 
-    <CategoryBox category = {category} score = {categories[category]} key={index}/>
+    <CategoryBox category = {category} score = {categories[category]} key={index} scoreClick={scoreClick}/>
     )
     }
    
